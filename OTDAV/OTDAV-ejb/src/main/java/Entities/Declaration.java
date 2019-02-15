@@ -23,12 +23,15 @@ public class Declaration implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idDeclaration;
 	private String titre;
+	private String description;
 	private String auteur;
 	private String fichier;
 	private String preuve;
 	private Date dateDeclaration;
 	@Enumerated(EnumType.STRING)
 	private EtatDeclaration etatDeclaration;
+	
+	
 
 	// prop de navigation
 	@ManyToOne
@@ -106,6 +109,14 @@ public class Declaration implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	
