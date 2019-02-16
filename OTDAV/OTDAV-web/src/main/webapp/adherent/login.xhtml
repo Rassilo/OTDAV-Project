@@ -29,12 +29,12 @@
 												<div class="form-group">
 													<label class="col-form-label">E-mail / CIN</label>
 													<h:inputText styleClass="form-control rounded-0"
-														value="#{loginBean.login}" />
+														value="#{identity.u.cin}" />
 												</div>
 												<div class="form-group">
 													<label class="col-form-label">Mot de passe</label>
 													<h:inputSecret styleClass="form-control rounded-0"
-														value="#{loginBean.password}" />
+														value="#{identity.u.motDePasse}" />
 												</div>
 												<div class="form-group ">
 													<div class="form-check">
@@ -45,7 +45,7 @@
 												</div>
 												<div class="form-group margin-top-30px">
 													<h:commandLink type="submit"
-														action="#{loginBean.doLogin()}"
+														action="#{identity.doLogin()}"
 														styleClass="btn btn-primary btn-block rounded-0 background-main-color box-shadow">
 														S'authentifier</h:commandLink>
 

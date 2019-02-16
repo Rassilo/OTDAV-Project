@@ -57,8 +57,8 @@ public class AuthBean {
 		int nbDays = adherentImplLocal.getNumberOfDays(new Date(), userLoggedIn.getDateDerniereCotisation());
 		if (userLoggedIn instanceof AdhPhysique || userLoggedIn instanceof AdhMorale) {
 
-			if (!(userLoggedIn.getEtatCompte() == EtatCompte.Demissione)) {
-				if (!(userLoggedIn.getEtatCompte() == EtatCompte.Sanctionne)) {
+			//if (!(userLoggedIn.getEtatCompte() == EtatCompte.Demissione)) {
+			//	if (!(userLoggedIn.getEtatCompte() == EtatCompte.Sanctionne)) {
 
 					setResigned(false);
 					setLogged(true);
@@ -70,17 +70,17 @@ public class AuthBean {
 					} else
 						setEtatCompte(false);
 					navigateTo = "/Adherent/Profil?faces-redirect=true";
-				} else
+				//} else
 					navigateTo = "/public/Banned?faces-redirect=true";
-			} else {
+			//} else {
 				setResigned(true);
 				setNotLogged(false);
 				setLoggedInAsAdherent(true);
 				navigateTo = "/Adherent/Profil?faces-redirect=true";
 			}
-		}
+		//}
 		if (userLoggedIn instanceof Admin) {
-			
+
 			setLogged(true);
 			setNotLogged(false);
 			setLoggedInAsAdmin(true);
@@ -88,6 +88,17 @@ public class AuthBean {
 		}
 		return navigateTo;
 
+	}
+
+	public String logout() {
+		isLogged = false;
+		isNotLogged = true;
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "/adherent/login?faces-redirect=true";
+	}
+
+	public String redirectToDashboard() {
+		return "/Admin/Dashboard?faces-redirect=true";
 	}
 
 	public AdherentImplLocal getAdherentImplLocal() {
