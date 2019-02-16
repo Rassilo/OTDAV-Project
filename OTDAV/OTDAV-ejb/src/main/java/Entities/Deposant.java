@@ -22,6 +22,9 @@ public class Deposant implements Serializable {
 	private String password;
 	private long phone;
 	private String address;
+	
+	
+	/*ssss*/
 	private static final long serialVersionUID = 1L;
 	
 	public Integer getId() {
