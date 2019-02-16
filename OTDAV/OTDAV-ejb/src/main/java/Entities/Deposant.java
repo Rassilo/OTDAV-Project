@@ -22,6 +22,7 @@ public class Deposant implements Serializable {
 	private String password;
 	private long phone;
 	private String address;
+	private String good;
 	
 	
 	/*ssss*/
