@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+<h:body>
+	<ui:composition template="/resources/front/shared/layout.xhtml">
+		<ui:define name="title">OTDAV - WebSite</ui:define>
+
+		<ui:define name="content">
+
+			<div id="firo-login">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-lg-9">
+							<div class="login-out box-shadow">
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="padding-50px">
+											<div class="logo-login margin-bottom-15px">
+												<a href="index-1.html"><img
+													src="#{request.contextPath}/resources/front/img/logo-otdav.png"
+													alt="" /></a>
+											</div>
+											<h:form class="firo-login-form">
+
+												<div class="form-group">
+													<label class="col-form-label">Nom</label> <input
+														type="text" class="form-control rounded-0" id="nom"
+														placeholder="Nom" />
+												</div>
+
+												<div class="form-group">
+													<label class="col-form-label">Prenom</label> <input
+														type="text" class="form-control rounded-0" id="nom"
+														placeholder="Prenom" />
+												</div>
+
+												<div class="form-group">
+													<label class="col-form-label">Cin/Passeport</label> <input
+														type="text" class="form-control rounded-0" id="cin"
+														placeholder="Cin/Passeport" />
+												</div>
+
+												<div class="form-group">
+													<label class="col-form-label">Date naissance</label> <input
+														type="date" class="form-control rounded-0"
+														id="datenaissance" />
+												</div>
+
+												<div class="form-group">
+													<label class="col-form-label">Lieu de naissance</label> <input
+														type="text" class="form-control rounded-0" id="cin"
+														placeholder="Lieu naissance" />
+												</div>
+
+
+												<div class="form-group">
+													<label class="col-form-label">Nationalité</label> <select
+														class="form-control rounded-0" id="nationalite">
+														<option value="Tunisienne">Tunisienne</option>
+														<option value="Algerienne">Algerienne</option>
+														<option value="Marrocaine">Marrocaine</option>
+													</select>
+												</div>
+
+
+												<div class="form-group">
+													<label class="col-form-label">Etat Civil</label> <select
+														class="form-control rounded-0" id="nationalite">
+														<option value="Celibataire">Celibataire</option>
+														<option value="Marie">Marie</option>
+														<option value="Divorce">Divorce</option>
+														<option value="Veuf">Veuf</option>
+													</select>
+
+												</div>
+
+												<div class="form-group">
+													<label class="col-form-label">Nombre d'enfants</label> <input
+														type="number" class="form-control rounded-0" id="nbenfant"
+														placeholder="Nombre d'enfants" />
+												</div>
+
+												<div class="form-group">
+													<label class="col-form-label">RIB</label> <input
+														type="text" class="form-control rounded-0" id="rib"
+														placeholder="Rib" />
+												</div>
+
+												<div class="form-group">
+													<label class="col-form-label">Image CIN</label> <input
+														type="file" class="form-control rounded-0"
+														id="uploaderCin" />
+												</div>
+
+
+												<div class="form-group">
+													<label for="inputEmail3" class="col-form-label">Email</label>
+													<input type="email" class="form-control rounded-0"
+														id="email" placeholder="Example@example.com" />
+												</div>
+
+												<div class="form-group">
+													<label class="col-form-label">Nom célebrité</label> <input
+														type="text" class="form-control rounded-0" id="celebrite"
+														placeholder="Nom célebrité" />
+												</div>
+
+												<div class="form-group">
+													<label class="col-form-label">Photo profile</label> <input
+														type="file" class="form-control rounded-0"
+														id="uploaderPhotoProfil" />
+												</div>
+
+
+
+												<div class="form-group">
+													<label class="col-form-label">Mot de passe</label> <input
+														type="password" class="form-control rounded-0"
+														id="Motdepasse" placeholder="Mot de passe" />
+												</div>
+
+
+												<div class="form-group">
+													<label class="col-form-label">Confirmation Mot de
+														passe</label> <input type="password"
+														class="form-control rounded-0" id="Motdepasse"
+														placeholder="Retapez Votre Mot de passe" />
+												</div>
+
+
+												<div class="form-group">
+													<label class="col-form-label">Catégorie</label> <select
+														class="form-control rounded-0" id="nationalite">
+														<option value="Musique">Musique</option>
+														<option value="Literature">Literature</option>
+														<option value="Theatre">Theatre</option>
+														<option value="Artplastique">Artplastique</option>
+													</select>
+
+												</div>
+
+												<div class="form-group">
+													<label class="col-form-label">Adresse</label> <input
+														type="text" class="form-control rounded-0" id="Adresse"
+														placeholder="Adresse" />
+												</div>
+
+
+												<div class="form-group">
+													<label class="col-form-label">Ville</label> <select
+														class="form-control rounded-0" id="nationalite">
+														<option value="Sfax">Sfax</option>
+														<option value="Ariana">Ariana</option>
+
+													</select>
+
+												</div>
+
+												<div class="form-group">
+													<label class="col-form-label">Code Postal</label> <input
+														type="number" class="form-control rounded-0"
+														id="codepostal" placeholder="Code Postal" />
+												</div>
+
+												<div class="form-group">
+													<label class="col-form-label">Telephone</label> <input
+														type="text" class="form-control rounded-0" id="Telephone"
+														placeholder="Telephone" />
+												</div>
+
+
+
+
+
+												<div class="form-group margin-top-30px">
+													<h:commandButton
+														class="btn btn-primary btn-block rounded-0 background-main-color box-shadow"
+														action="#{identity.doLogin()}" value="S'inscrire" />
+
+
+												</div>
+												<div class="terms">
+													En vous inscrivant, vous acceptez <a href="#">les
+														conditions d'utilisation</a>
+												</div>
+											</h:form>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<img
+											src="#{request.contextPath}/resources/front/img/sing-up.jpeg"
+											alt="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+</html>

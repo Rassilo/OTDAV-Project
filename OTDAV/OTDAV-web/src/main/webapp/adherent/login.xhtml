@@ -7,6 +7,7 @@
 <h:body>
 	<ui:composition template="/resources/front/shared/layout.xhtml">
 		<ui:define name="title">OTDAV - WebSite</ui:define>
+
 		<ui:define name="content">
 			<div id="firo-login">
 				<div class="container">
@@ -17,37 +18,48 @@
 									<div class="col-lg-6">
 										<div class="padding-50px">
 											<div class="logo-login margin-bottom-35px">
-												<a href="index-1.html"><img src="./assets/front/img/logo-otdav.png" alt=""/></a>
+												<a href="index-1.html"><img
+													src="#{request.contextPath}/resources/front/img/logo-otdav.png"
+													alt="" /></a>
 											</div>
-											<div style="color:red"><h:messages></h:messages></div>
+											<div style="color: red">
+												<h:messages></h:messages>
+											</div>
 											<h:form class="firo-login-form">
 												<div class="form-group">
 													<label class="col-form-label">E-mail / CIN</label>
-													<h:inputText styleClass="form-control rounded-0" value="#{loginBean.login}"/>
+													<h:inputText styleClass="form-control rounded-0"
+														value="#{loginBean.login}" />
 												</div>
 												<div class="form-group">
 													<label class="col-form-label">Mot de passe</label>
-													<h:inputSecret styleClass="form-control rounded-0" value="#{loginBean.password}"/>
+													<h:inputSecret styleClass="form-control rounded-0"
+														value="#{loginBean.password}" />
 												</div>
 												<div class="form-group ">
 													<div class="form-check">
-														<label class="form-check-label">
-															<input class="form-check-input" type="checkbox"/> Remember me
+														<label class="form-check-label"> <input
+															class="form-check-input" type="checkbox" /> Remember me
 														</label>
 													</div>
 												</div>
 												<div class="form-group margin-top-30px">
-													<h:commandLink type="submit" action="#{loginBean.doLogin()}" styleClass="btn btn-primary btn-block rounded-0 background-main-color box-shadow">
+													<h:commandLink type="submit"
+														action="#{loginBean.doLogin()}"
+														styleClass="btn btn-primary btn-block rounded-0 background-main-color box-shadow">
 														S'authentifier</h:commandLink>
 
-													<a href="#{request.contextPath}/register.jsf" Class="btn btn-primary btn-block rounded-0 background-main-color box-shadow">
+													<a href="#{request.contextPath}/register.jsf"
+														Class="btn btn-primary btn-block rounded-0 background-main-color box-shadow">
 														S'inscrire</a>
 												</div>
 											</h:form>
 										</div>
 									</div>
 									<div class="col-lg-6">
-										<img src="./assets/front/img/login.jpeg" alt=""/>
+										<img
+											src="#{request.contextPath}/resources/front/img/login.jpeg"
+											alt="" />
 									</div>
 								</div>
 							</div>
@@ -55,9 +67,12 @@
 					</div>
 				</div>
 			</div>
-			
+			<a href="#{request.contextPath}/home.jsf"
+				class="firo-bottom sm firo-demo-back">Retour ...</a>
 		</ui:define>
+
 	</ui:composition>
+
 
 </h:body>
 </html>
