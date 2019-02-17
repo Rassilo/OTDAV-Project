@@ -1,4 +1,4 @@
-﻿/*-----------------------------------------------------------------
+/*-----------------------------------------------------------------
 [Main Stylesheet]
 
 Project:    Firo 
@@ -4694,6 +4694,10 @@ video {
 
 .background-brown-3 {
   background-color: #BF360C;
+}
+
+.background-yellow {
+  background-color: #cef229;
 }
 
 .bag-dark {

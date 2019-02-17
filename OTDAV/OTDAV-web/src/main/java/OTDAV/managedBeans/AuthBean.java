@@ -47,44 +47,25 @@ public class AuthBean {
 		String encryptedPassword = cp.get_SHA_512_SecurePassword(pwd, "x");
 
 		Adherent userLoggedIn = adherentImplLocal.login(u.getCin(), encryptedPassword);
-		if (userLoggedIn == null) {
-			FacesMessage message = new FacesMessage("", "Vérifiez votre CIN/Email ou mot de passe");
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
 		u = userLoggedIn;
 
 		int nbDays = adherentImplLocal.getNumberOfDays(new Date(), userLoggedIn.getDateDerniereCotisation());
 		if (userLoggedIn instanceof AdhPhysique || userLoggedIn instanceof AdhMorale) {
 
-			//if (!(userLoggedIn.getEtatCompte() == EtatCompte.Demissione)) {
-			//	if (!(userLoggedIn.getEtatCompte() == EtatCompte.Sanctionne)) {
+			setLogged(true);
+			setNotLogged(false);
+			setLoggedInAsAdherent(true);
+			System.out.println("OK");
+			return "/declarations/AddDeclarationMusique?faces-redirect=true";
 
-					setResigned(false);
-					setLogged(true);
-					setNotLogged(false);
-					setLoggedInAsAdherent(true);
+		}
 
-					if (declaratinImplLocal.getDeclarationByAdherent(u.getIdAdherent()).size() == 0) {
-						setEtatCompte(true);
-					} else
-						setEtatCompte(false);
-					navigateTo = "/Adherent/Profil?faces-redirect=true";
-				//} else
-					navigateTo = "/public/Banned?faces-redirect=true";
-			//} else {
-				setResigned(true);
-				setNotLogged(false);
-				setLoggedInAsAdherent(true);
-				navigateTo = "/Adherent/Profil?faces-redirect=true";
-			}
-		//}
 		if (userLoggedIn instanceof Admin) {
 
 			setLogged(true);
 			setNotLogged(false);
 			setLoggedInAsAdmin(true);
-			navigateTo = "/Admin/Dashboard?faces-redirect=true";
+			navigateTo = "/admin/Dashboard?faces-redirect=true";
 		}
 		return navigateTo;
 

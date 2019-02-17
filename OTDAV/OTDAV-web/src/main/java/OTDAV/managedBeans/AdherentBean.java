@@ -213,6 +213,8 @@ public class AdherentBean {
 	}
 
 	public String signUpAsAdherentPhysique() throws InterruptedException, IOException {
+		
+		
 		modelPhysique.setCopieCin(modelPhysique.getCin() + "/" + fileCin.getSubmittedFileName());
 		modelPhysique.setNbPoints(0);
 		modelPhysique.setSolde(0);
