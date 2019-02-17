@@ -2,8 +2,11 @@ package Entities;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+
+import Enums.DeposantType;
 
 
 @Entity
@@ -20,12 +23,23 @@ public class Deposant implements Serializable {
 	private String email;
 	private String login;
 	private String password;
+	private String lieuCommerce;
+	private String numeroCommerce;
+	private String raison;
+	private Date dateCommerce;
 	private long phone;
+	@Enumerated(EnumType.STRING)
+	private DeposantType type;
 	private String address;
-	private String good;
 	
 	
-	/*ssss*/
+	//Relations
+	@OneToMany(mappedBy="deposant")
+	private List<Depot> depots;
+	
+	@OneToMany(mappedBy="deposant")
+	private List<Fichier> fichiers;
+	
 	private static final long serialVersionUID = 1L;
 	
 	public Integer getId() {
@@ -107,6 +121,64 @@ public class Deposant implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
+	public List<Depot> getDepots() {
+		return depots;
+	}
+
+	public void setDepots(List<Depot> depots) {
+		this.depots = depots;
+	}
+
+	public DeposantType getType() {
+		return type;
+	}
+
+	public void setType(DeposantType type) {
+		this.type = type;
+	}
+
+	public String getLieuCommerce() {
+		return lieuCommerce;
+	}
+
+	public void setLieuCommerce(String lieuCommerce) {
+		this.lieuCommerce = lieuCommerce;
+	}
+
+	public String getNumeroCommerce() {
+		return numeroCommerce;
+	}
+
+	public void setNumeroCommerce(String numeroCommerce) {
+		this.numeroCommerce = numeroCommerce;
+	}
+
+	public Date getDateCommerce() {
+		return dateCommerce;
+	}
+
+	public void setDateCommerce(Date dateCommerce) {
+		this.dateCommerce = dateCommerce;
+	}
+
+	public List<Fichier> getFichiers() {
+		return fichiers;
+	}
+
+	public void setFichiers(List<Fichier> fichiers) {
+		this.fichiers = fichiers;
+	}
+
+	public String getRaison() {
+		return raison;
+	}
+
+	public void setRaison(String raison) {
+		this.raison = raison;
+	}
+	
+	
 	
 	
 	

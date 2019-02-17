@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<ui:composition template="/resources/front/shared/layout.xhtml">
+		<ui:define name="title">OTDAV - WebSite</ui:define>
+		
+		<ui:define name="header">
+            <ui:include src="/resources/front/shared/header.xhtml"/>
+        </ui:define>
+		
+		 <ui:define name="footer">
+            <ui:include src="/resources/front/shared/footer.xhtml"/>
+        </ui:define>
+		
+		<ui:define name="content">
+			<div id="firo-login">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-lg-10">
+							<div class="login-out box-shadow">
+								
+								<div class="row">
+									<div class="padding-50px">
+										<div class="logo-login margin-bottom-35px">
+											<a href="index.xhtml"><img src="#{request.contextPath}/resources/front/img/logo-1.png" alt=""/></a>
+										</div>
+										<div style="color:red"><h:messages></h:messages></div>
+										<h:form class="firo-login-form" enctype="multipart/form-data"  prependId="false">
+									
+											<div class="form-row">
+												<div class="form-group col-md-6">
+													<label class="col-form-label">Raison sociale </label>
+													<h:inputText id="t1" styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.cin}"/>
+												</div>
+									
+												<div class="form-group col-md-6">
+													<label class="col-form-label">Nom Entreprise:</label>
+													<h:inputText styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.name}"/>
+												</div>
+											</div>
+											
+										
+											<div class="form-group">
+												<label class="col-form-label">Email :</label>
+												<h:inputText styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.email}"/>
+											</div>
+									
+											<div class="form-row">
+												<div class="form-group col-md-6">
+													<label class="col-form-label">Mot de passe :</label>
+													<h:inputSecret  styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.password}"/>
+												</div>
+									
+									
+												<div class="form-group col-md-6">
+													<label class="col-form-label">Confirmer Mot de passe :</label>
+													<h:inputSecret  styleClass="form-control rounded-0" value="#{depotLoginBean.passwordConfirm}"/>
+												</div>
+											</div>
+									
+											<div class="form-row">
+												<div class="form-group col-md-6">
+													<label class="col-form-label">Numèro de tel :</label>
+													<h:inputText styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.phone}"/>
+												</div>
+									
+												<div class="form-group col-md-6">
+													<label class="col-form-label">Adresse :</label>
+													<h:inputText styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.address}"/>
+									
+												</div>
+											</div>
+									
+											<div class="form-row">
+												<div class="form-group col-md-6">
+										           	<h:outputText value="Cin: "/>
+										            <h:inputFile value="#{depotLoginBean.uploadedFileCin}"/>
+										        </div>
+										        <div class="form-group col-md-6">
+										           	<h:outputText value="Cin: "/>
+										            <h:inputFile value="#{depotLoginBean.uploadedFileCommerce}"/>
+										        </div>
+										       
+											</div>
+									
+											<div class="form-row">
+												<div class="form-group col-md-6">
+										           	<h:outputText value="Cin: "/>
+										            <h:inputFile value="#{depotLoginBean.uploadedFileDeclaration}"/>
+										        </div>
+												<div class="form-group col-md-6">
+										           	<h:outputText value="Cin: "/>
+										            <h:inputFile value="#{depotLoginBean.uploadedFileExistance}"/>
+										        </div>
+											</div>
+
+											<div class="form-row">
+												 <div class="form-group col-md-6">
+										           	<h:outputText value="Cin: "/>
+										            <h:inputFile value="#{depotLoginBean.uploadedFileFiscale}"/>
+										        </div>
+										        <div class="form-group col-md-6">
+										           	<h:outputText value="Cin: "/>
+										            <h:inputFile value="#{depotLoginBean.uploadedFileStatut}"/>
+										        </div>
+											</div>
+									
+											<div class="form-row">
+										        <div class="form-group">
+										           	<h:outputText value="Cin: "/>
+										            <h:inputFile value="#{depotLoginBean.uploadedFileJort}"/>
+										        </div>
+											</div>
+									
+											<div class="form-group margin-top-30px">
+												<h:commandLink action="#{depotLoginBean.doRegisterMorale()}" styleClass="btn btn-primary btn-block rounded-0 background-main-color box-shadow">
+													Registre
+												</h:commandLink>
+											</div>
+										</h:form>
+									</div>								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a href="#{request.contextPath}/home.jsf" class="firo-bottom sm firo-demo-back">Retour ...</a>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

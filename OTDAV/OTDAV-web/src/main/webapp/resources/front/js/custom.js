@@ -39,6 +39,13 @@
         $menu.slideToggle();
         $menu_yoga.slideToggle();
     });
+    
+    $( ".hasdatepicker" ).attr("autocomplete", "off");  
+	$( ".hasdatepicker" ).datepicker({
+		dateFormat: 'dd MM, yy',
+		changeMonth: true,
+		changeYear: true
+	});
     $list.on("click", function (e) {
         var submenu = this.parentNode.getElementsByTagName("ul").item(0);
         if (submenu != null) {
