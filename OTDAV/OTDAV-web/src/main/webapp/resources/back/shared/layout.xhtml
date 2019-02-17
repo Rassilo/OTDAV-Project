@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="#{request.contextPath}\resources\back\vendors\css\materialdesignicons.min.css"/>
+    <link rel="stylesheet" href="#{request.contextPath}\resources\back\vendors\css\feather.css"/>
+    <link rel="stylesheet" href="#{request.contextPath}\resources\back\vendors\css\vendor.bundle.base.css"/>
+    <link rel="stylesheet" href="#{request.contextPath}\resources\back\vendors\css\vendor.bundle.addons.css"/>
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="#{request.contextPath}\resources\back\css\style.css"/>
+    <title><ui:insert name="title"></ui:insert></title>
+</h:head>
+
+<h:body>
+
+    <div class="container-scroller">
+
+         <ui:include src="header.xhtml"/>
+
+        <div class="container-fluid page-body-wrapper">
+            <ui:include src="sideHeader.xhtml"></ui:include>
+            <ui:insert name="content"></ui:insert>
+        </div>
+        
+        <ui:include src="footer.xhtml"/>
+
+    </div>
+
+    <!-- plugins:js -->
+    <script src="#{request.contextPath}\resources\back\vendors\js\vendor.bundle.base.js"></script>
+    <script src="#{request.contextPath}\resources\back\vendors\js\vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="#{request.contextPath}\resources\back\js\off-canvas.js"></script>
+    <script src="#{request.contextPath}\resources\back\js\hoverable-collapse.js"></script>
+    <script src="#{request.contextPath}\resources\back\js\misc.js"></script>
+    <script src="#{request.contextPath}\resources\back\js\settings.js"></script>
+    <script src="#{request.contextPath}\resources\back\js\todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="#{request.contextPath}\resources\back\js\dashboard.js"></script>
+    <!-- End custom js for this page-->
+
+    <ui:insert name="scripts"></ui:insert>
+
+</h:body>
+</html>
