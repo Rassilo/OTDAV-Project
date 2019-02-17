@@ -70,7 +70,10 @@ public class AdherentBean {
 
 	public String getSubscribedCategory() {
 		String allSubscribedCateg;
+		
+		System.out.println("current user cin =>"+authBean.getU().getCin());
 		allSubscribedCateg = adherentImplLocal.getAllSubscribedCategory(authBean.getU());
+		
 		return allSubscribedCateg;
 	}
 

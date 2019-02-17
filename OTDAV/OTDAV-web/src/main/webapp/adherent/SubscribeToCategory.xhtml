@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/resources/front/shared/layout.xhtml">
+		<ui:define name="title">OTDAV - WebSite</ui:define>
+
+		<ui:define name="content">
+
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-6">
+					<div class="contact-modal">
+						<div class="background-main-color">
+							<div class="padding-30px">
+
+								<h:inputText value="#{adherentBean.getSubscribedCategory()}" />
+
+								<h:form>
+									<h1>S'abonner a une nouvelle catégorie</h1>
+									<h:outputLabel>Vous étes actuellement abonné à  </h:outputLabel>
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+
+		</ui:define>
+
+
+	</ui:composition>
+</h:body>
+
+</html>
