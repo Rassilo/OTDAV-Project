@@ -40,6 +40,8 @@ public class AdherentBean {
 
 	private List<String> cities = new ArrayList<>();
 	private List<String> countries = new ArrayList<>();
+	
+	private String dateAsString;
 
 	// to store the selected category to subscribe
 	private String newCategory;
@@ -228,7 +230,10 @@ public class AdherentBean {
 		modelPhysique.setDateAdhesion(new Date());
 
 		// date naissance to change it
-		modelPhysique.setDateNaissance(new Date());
+		
+		
+		
+		modelPhysique.setDateNaissance(new Date(dateAsString));
 
 		modelPhysique.setEtatCompte(EtatCompte.NonConfirme);
 		modelPhysique.setEtatAdherent(EA.Vivant);
@@ -487,6 +492,14 @@ public class AdherentBean {
 
 	public void setCountries(List<String> countries) {
 		this.countries = countries;
+	}
+
+	public String getDateAsString() {
+		return dateAsString;
+	}
+
+	public void setDateAsString(String dateAsString) {
+		this.dateAsString = dateAsString;
 	}
 
 }

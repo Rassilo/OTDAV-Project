@@ -27,6 +27,8 @@ public class AdhPhysique extends Adherent {
 	@Enumerated(EnumType.STRING)
 	private EtatCivil etatCivil;
 	private int nbEnfants;
+	
+	
 
 	private static final long serialVersionUID = 1L;
 
@@ -109,5 +111,7 @@ public class AdhPhysique extends Adherent {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+
 
 }
