@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/resources/front/shared/layout.xhtml">
+		<ui:define name="title">OTDAV - WebSite</ui:define>
+
+		<ui:define name="content">
+			<section class="padding-tb-100px">
+			<div class="container">
+
+				<div class="row justify-content-center">
+					<div class="col-lg-6">
+						<div class="firo-title dark text-center">
+							<div class="sub-title">OTDAV</div>
+							<h2 class="title">S'inscrire en tant que</h2>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+
+					<div class="col-lg-3 col-md-6">
+						<div class="firo-img-text layout-2 background-main-color">
+							<div class="img">
+								<img
+									src="#{request.contextPath}/resources/front/img/personne-physique.png"
+									alt="" />
+							</div>
+
+							<a href="#" class="title">Adherent Physique</a>
+						</div>
+					</div>
+
+
+					<div class="col-lg-3 col-md-6">
+						<div class="firo-img-text layout-2 background-main-color">
+							<div class="img">
+								<img
+									src="#{request.contextPath}/resources/front/img/personne-morale.png"
+									alt="" />
+							</div>
+							<a href="#" class="title">Adherent Morale</a>
+						</div>
+					</div>
+
+
+
+
+				</div>
+
+			</div>
+			</section>
+		</ui:define>
+
+
+	</ui:composition>
+</h:body>
+
+</html>

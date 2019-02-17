@@ -40,7 +40,7 @@ public class AdherentBean {
 
 	private List<String> cities = new ArrayList<>();
 	private List<String> countries = new ArrayList<>();
-	
+
 	private String dateAsString;
 
 	// to store the selected category to subscribe
@@ -70,10 +70,10 @@ public class AdherentBean {
 
 	public String getSubscribedCategory() {
 		String allSubscribedCateg;
-		
-		System.out.println("current user cin =>"+authBean.getU().getCin());
+
+		System.out.println("current user cin =>" + authBean.getU().getCin());
 		allSubscribedCateg = adherentImplLocal.getAllSubscribedCategory(authBean.getU());
-		
+
 		return allSubscribedCateg;
 	}
 
@@ -218,8 +218,7 @@ public class AdherentBean {
 	}
 
 	public String signUpAsAdherentPhysique() throws InterruptedException, IOException {
-		
-		
+
 		modelPhysique.setCopieCin(modelPhysique.getCin() + "/" + fileCin.getSubmittedFileName());
 		modelPhysique.setNbPoints(0);
 		modelPhysique.setSolde(0);
@@ -233,9 +232,7 @@ public class AdherentBean {
 		modelPhysique.setDateAdhesion(new Date());
 
 		// date naissance to change it
-		
-		
-		
+
 		modelPhysique.setDateNaissance(new Date(dateAsString));
 
 		modelPhysique.setEtatCompte(EtatCompte.NonConfirme);
