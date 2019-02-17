@@ -99,6 +99,7 @@ public class DeclarationBean {
 		// Generate unique name
 		String uniqeName = UUID.randomUUID().toString();
 
+		declarationArtistique.setDescription(modelArtistique.getDescription());
 		declarationArtistique.setAuteur(modelArtistique.getAuteur());
 		declarationArtistique.setDateDeclaration(new Date());
 		declarationArtistique.setEtatDeclaration(EtatDeclaration.EnAttente);

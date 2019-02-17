@@ -56,7 +56,7 @@ public class AuthBean {
 			setNotLogged(false);
 			setLoggedInAsAdherent(true);
 			System.out.println("OK");
-			return "/declarations/AddDeclarationMusique?faces-redirect=true";
+			return "/declarations/AddDeclarationArtistique?faces-redirect=true";
 
 		}
 
