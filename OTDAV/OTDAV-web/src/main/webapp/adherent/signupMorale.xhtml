@@ -25,94 +25,62 @@
 											</div>
 											<h:form class="firo-login-form" enctype="multipart/form-data">
 												<div class="form-group">
-													<label class="col-form-label">Nom</label>
+													<label class="col-form-label">Entreprise</label>
 													<h:inputText styleClass="form-control rounded-0"
-														value="#{adherentBean.modelPhysique.nom}" />
+														value="#{adherentBean.modelMorale.nomEntreprise}" />
 
-													<label class="col-form-label">Prenom</label>
+													<label class="col-form-label">Adresse</label>
 													<h:inputText styleClass="form-control rounded-0"
-														value="#{adherentBean.modelPhysique.prenom}" />
+														value="#{adherentBean.modelMorale.adresse}" />
 
-													<label class="col-form-label">Cin/Passeport</label>
-													<h:inputText styleClass="form-control rounded-0"
-														value="#{adherentBean.modelPhysique.cin}" />
-
-
-
-													<label class="col-form-label">Lieu de naissance</label>
-													<h:inputText styleClass="form-control rounded-0"
-														value="#{adherentBean.modelPhysique.lieuNaissance}" />
-
-
-
-
-													<label class="col-form-label">Nationalite</label>
-													<h:selectOneMenu value="#{adherentBean.selectedCountry}">
-														<f:selectItems value="#{adherentBean.countries}" />
+													<label class="col-form-label">Ville</label>
+													<h:selectOneMenu value="#{adherentBean.selectedCity}">
+														<f:selectItems value="#{adherentBean.cities}" />
 													</h:selectOneMenu>
 
 
-
-
-
-													<label class="col-form-label">Etat Civil</label>
-
-													<h:selectOneMenu
-														value="#{adherentBean.modelPhysique.etatCivil}">
-														<f:selectItem itemValue="celibataire"
-															itemLabel="Celibataire" />
-														<f:selectItem itemValue="marie" itemLabel="Marie" />
-														<f:selectItem itemValue="divorce" itemLabel="Divorce" />
-														<f:selectItem itemValue="veuf" itemLabel="Veuf" />
-													</h:selectOneMenu>
-
-
-
-
-
-													<label class="col-form-label">nbEnfants</label>
+													<label class="col-form-label">Code Postal</label>
 													<h:inputText styleClass="form-control rounded-0"
-														value="#{adherentBean.modelPhysique.nbEnfants}" />
+														value="#{adherentBean.modelMorale.codePostal}" />
 
+													<label class="col-form-label">Telephone</label>
+													<h:inputText styleClass="form-control rounded-0"
+														value="#{adherentBean.modelMorale.telephone}" />
 
+													<label class="col-form-label">Fax</label>
+													<h:inputText styleClass="form-control rounded-0"
+														value="#{adherentBean.modelMorale.fax}" />
 
 													<label class="col-form-label">Identifiant Bancaire</label>
 													<h:inputText styleClass="form-control rounded-0"
-														value="#{adherentBean.modelPhysique.rib}" />
+														value="#{adherentBean.modelMorale.rib}" />
+
 
 													<label class="col-form-label">Photo CIN</label>
 													<h:inputFile styleClass="form-control rounded-0"
 														id="uploaderCin" value="#{adherentBean.fileCin}" />
-
-
-
-													<label class="col-form-label">E-mail</label>
-													<h:inputText styleClass="form-control rounded-0"
-														value="#{adherentBean.modelPhysique.email}" />
-
-
-													<label class="col-form-label">Nom de celebrite</label>
-													<h:inputText styleClass="form-control rounded-0"
-														value="#{adherentBean.modelPhysique.pseudonyme}" />
 
 													<label class="col-form-label">Photo Profile</label>
 													<h:inputFile styleClass="form-control rounded-0"
 														id="uploaderPhotoProfil"
 														value="#{adherentBean.fileProfil}" />
 
+													<label class="col-form-label">E-mail</label>
+													<h:inputText styleClass="form-control rounded-0"
+														value="#{adherentBean.modelMorale.email}" />
+
 													<label class="col-form-label">Mot de passe</label>
 													<h:inputSecret styleClass="form-control rounded-0"
-														value="#{adherentBean.modelPhysique.motDePasse}" />
+														value="#{adherentBean.modelMorale.motDePasse}" />
 
 													<label class="col-form-label">Confirmer votre mot
 														de passe</label>
 													<h:inputSecret styleClass="form-control rounded-0"
 														value="#{adherentBean.confirmPassword}" />
 
-
 													<label class="col-form-label">Categorie</label>
 													<h:selectOneMenu
-														value="#{adherentBean.modelPhysique.categorieAbonnement}">
+														value="#{adherentBean.modelMorale.categorieAbonnement}">
 														<f:selectItem itemValue="Musique" itemLabel="Musique" />
 														<f:selectItem itemValue="Literature"
 															itemLabel="Literature " />
@@ -122,34 +90,51 @@
 													</h:selectOneMenu>
 
 
-
-
-													<label class="col-form-label">Adresse</label>
+													<label class="col-form-label">Cin Gérant/PDG</label>
 													<h:inputText styleClass="form-control rounded-0"
-														value="#{adherentBean.modelPhysique.adresse}" />
+														value="#{adherentBean.modelMorale.cin}" />
 
-													<label class="col-form-label">Ville</label>
-													<h:selectOneMenu value="#{adherentBean.selectedCity}">
-														<f:selectItems value="#{adherentBean.cities}" />
-													</h:selectOneMenu>
-
-
-
-													<label class="col-form-label">code Postal</label>
+													<label class="col-form-label">Registre de commerce</label>
 													<h:inputText styleClass="form-control rounded-0"
-														value="#{adherentBean.modelPhysique.codePostal}" />
+														value="#{adherentBean.modelMorale.numRegComm}" />
 
 
-													<label class="col-form-label">Telephone</label>
-													<h:inputText styleClass="form-control rounded-0"
-														value="#{adherentBean.modelPhysique.telephone}" />
+
+													<label class="col-form-label">Registre de commerce</label>
+													<h:inputFile styleClass="form-control rounded-0"
+														id="uploaderRegcomm" value="#{adherentBean.fileRegComm}" />
+
+
+													<label class="col-form-label">Statut</label>
+													<h:inputFile styleClass="form-control rounded-0"
+														id="uploaderStatut" value="#{adherentBean.fileStatut}" />
+
+
+													<label class="col-form-label">JORT</label>
+													<h:inputFile styleClass="form-control rounded-0"
+														id="uploaderJort" value="#{adherentBean.fileJort}" />
+
+
+													<label class="col-form-label">Statut Fiscale</label>
+													<h:inputFile styleClass="form-control rounded-0"
+														id="uploaderStatFiscale"
+														value="#{adherentBean.fileStatFiscale}" />
+
+
+													<label class="col-form-label">Déclaration
+														d'existence</label>
+													<h:inputFile styleClass="form-control rounded-0"
+														id="uploaderDeclarExist"
+														value="#{adherentBean.fileDeclarExistence}" />
+
+
 
 
 
 												</div>
 												<div class="form-group margin-top-30px">
 													<h:commandLink type="submit"
-														action="#{adherentBean.signUpAsAdherentPhysique()}"
+														action="#{adherentBean.signUpAsAdherentMorale()}"
 														styleClass="btn btn-primary btn-block rounded-0 background-main-color box-shadow">
 														S'inscrire</h:commandLink>
 

@@ -39,6 +39,7 @@ public class AdherentBean {
 	private AdhMorale modelMorale = new AdhMorale();
 
 	private List<String> cities = new ArrayList<>();
+	private List<String> countries = new ArrayList<>();
 
 	// to store the selected category to subscribe
 	private String newCategory;
@@ -46,6 +47,7 @@ public class AdherentBean {
 	private List<String> unsubscribedCategories = new ArrayList<>();
 
 	private String selectedCity;
+	private String selectedCountry;
 
 	// pour physique + morale
 	private Part fileCin;
@@ -175,14 +177,46 @@ public class AdherentBean {
 	}
 
 	public String signUpAsAdherentMorale() throws InterruptedException, IOException {
+		modelMorale.setCopieCin(modelMorale.getCin() + "/" + fileCin.getSubmittedFileName());
+		modelMorale.setNbPoints(0);
+		modelMorale.setSolde(0);
+		modelMorale.setVille(selectedCity);
+		modelMorale.setPhotoProfil(modelMorale.getCin() + "/" + fileProfil.getSubmittedFileName());
+		CryptPassword cp = new CryptPassword();
+		String encryptedPassword = cp.get_SHA_512_SecurePassword(modelMorale.getMotDePasse(), "x");
+		modelMorale.setMotDePasse(encryptedPassword);
+		modelMorale.setDateDerniereCotisation(new Date());
+		modelMorale.setDateAdhesion(new Date());
+		modelMorale.setEtatCompte(EtatCompte.NonConfirme);
+		modelMorale.setRegCommCopie(modelMorale.getCin() + "/" + fileRegComm.getSubmittedFileName());
+		modelMorale.setStatutCopie(modelMorale.getCin() + "/" + fileStatut.getSubmittedFileName());
+		modelMorale.setJortCopie(modelMorale.getCin() + "/" + fileJort.getSubmittedFileName());
+		modelMorale.setMatriculeFiscaleCopie(modelMorale.getCin() + "/" + fileStatFiscale.getSubmittedFileName());
+		modelMorale
+				.setDeclarationExistenceCopie(modelMorale.getCin() + "/" + fileDeclarExistence.getSubmittedFileName());
 
-		return "";
+		// create a folder with the company's name
+		String folderName = Routing.server + modelMorale.getCin();
+		File dir = new File(folderName);
+		dir.mkdir();
+		TimeUnit.SECONDS.sleep(3);
+		uploadCinOrPasseport(folderName);
+		uploadRegComm(folderName);
+		uploadStatut(folderName);
+		uploadJORT(folderName);
+		uploadStatFiscale(folderName);
+		uploadDeclarExistence(folderName);
+		uploadPhotoProfil(folderName);
+		adherentImplLocal.addAdherent(modelMorale);
+		return "Registered?faces-redirect=true";
+
 	}
 
 	public String signUpAsAdherentPhysique() throws InterruptedException, IOException {
 		modelPhysique.setCopieCin(modelPhysique.getCin() + "/" + fileCin.getSubmittedFileName());
 		modelPhysique.setNbPoints(0);
 		modelPhysique.setSolde(0);
+		modelPhysique.setNationalite(selectedCountry);
 		modelPhysique.setVille(selectedCity);
 		modelPhysique.setPhotoProfil(modelPhysique.getCin() + "/" + fileProfil.getSubmittedFileName());
 		CryptPassword cp = new CryptPassword();
@@ -431,6 +465,26 @@ public class AdherentBean {
 	public void test() {
 
 		System.out.println("Button Clicked !!");
+	}
+
+	public String getSelectedCountry() {
+		return selectedCountry;
+	}
+
+	public void setSelectedCountry(String selectedCountry) {
+		this.selectedCountry = selectedCountry;
+	}
+
+	public List<String> getCountries() {
+		countries.add("Tunisienne");
+		countries.add("Algerienne");
+		countries.add("Marrocaine");
+
+		return countries;
+	}
+
+	public void setCountries(List<String> countries) {
+		this.countries = countries;
 	}
 
 }
