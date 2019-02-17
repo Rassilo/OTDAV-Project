@@ -56,7 +56,7 @@ public class AuthBean {
 			setNotLogged(false);
 			setLoggedInAsAdherent(true);
 			System.out.println("OK");
-			return "/declarations/AddDeclarationArtistique?faces-redirect=true";
+			return "/declarations/AddDeclarationLiterature?faces-redirect=true";
 
 		}
 

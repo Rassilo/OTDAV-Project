@@ -131,6 +131,7 @@ public class DeclarationBean {
 		// Generate unique name
 		String uniqeName = UUID.randomUUID().toString();
 		declarationTheatre.setAuteur(modelTheatre.getAuteur());
+		declarationTheatre.setDescription(modelTheatre.getDescription());
 		declarationTheatre.setDateDeclaration(new Date());
 		declarationTheatre.setEtatDeclaration(EtatDeclaration.EnAttente);
 		declarationTheatre
@@ -163,6 +164,7 @@ public class DeclarationBean {
 		String uniqeName = UUID.randomUUID().toString();
 
 		declarationLiterature.setAuteur(modelLiterature.getAuteur());
+		declarationLiterature.setDescription(modelLiterature.getDescription());
 		declarationLiterature.setDateDeclaration(new Date());
 		declarationLiterature.setEtatDeclaration(EtatDeclaration.EnAttente);
 		declarationLiterature
