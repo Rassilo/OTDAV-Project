@@ -5,7 +5,7 @@
 	  xmlns:ui="http://java.sun.com/jsf/facelets"
 	  xmlns:f="http://java.sun.com/jsf/core">
 <h:body>
-	<ui:composition template="/front/shared/layout.xhtml">
+	<ui:composition template="/resources/front/shared/layout.xhtml">
 		<ui:define name="title">OTDAV - WebSite</ui:define>
 		<ui:define name="content">
 			<div id="firo-login">
@@ -17,78 +17,74 @@
 									<div class="col-lg-6">
 										<div class="padding-50px">
 											<div class="logo-login margin-bottom-35px">
-												<a href="index.xhtml"><img src="#{request.contextPath}/assets/front/img/logo-1.png" alt=""/></a>
+												<a href="index.xhtml"><img src="#{request.contextPath}/resources/front/img/logo-1.png" alt=""/></a>
 											</div>
 											<div style="color:red"><h:messages></h:messages></div>
-											<h:form class="firo-login-form">
+											<h:form class="firo-login-form" enctype="multipart/form-data"  prependId="false">
 
 												<div class="form-group">
-													<label class="col-form-label">Pièce d'identité / Raison sociale </label>
-													<h:inputText id="t1" styleClass="form-control rounded-0" value="#{loginBean.cin}"/>
+													<label class="col-form-label">Pièce d'identité</label>
+													<h:inputText id="t1" styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.cin}"/>
 												</div>
 
 
 												<div class="form-group">
 													<label class="col-form-label">Nom :</label>
-													<h:inputText styleClass="form-control rounded-0" value="#{loginBean.name}"/>
+													<h:inputText styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.name}"/>
 												</div>
 												<div class="form-group">
 													<label class="col-form-label">Prenom :</label>
-													<h:inputText styleClass="form-control rounded-0" value="#{loginBean.surname}"/>
+													<h:inputText styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.surname}"/>
 												</div>
 
 												<div class="form-group">
 													<label class="col-form-label">Pseudo :</label>
-													<h:inputText styleClass="form-control rounded-0" value="#{loginBean.login}"/>
+													<h:inputText styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.login}"/>
 												</div>
 
 												<div class="form-group">
 													<label class="col-form-label">Email :</label>
-													<h:inputText styleClass="form-control rounded-0" value="#{loginBean.email}"/>
+													<h:inputText styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.email}"/>
 												</div>
 
 
 												<div class="form-group">
 													<label class="col-form-label">Mot de passe :</label>
-													<h:inputSecret  styleClass="form-control rounded-0" value="#{loginBean.password}"/>
+													<h:inputSecret  styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.password}"/>
 												</div>
 
 
 												<div class="form-group">
 													<label class="col-form-label">Confirmer Mot de passe :</label>
-													<h:inputSecret  styleClass="form-control rounded-0" value="#{loginBean.passwordConfirm}"/>
+													<h:inputSecret  styleClass="form-control rounded-0" value="#{depotLoginBean.passwordConfirm}"/>
 												</div>
 
 												<div class="form-group">
 													<label class="col-form-label">Numèro de tel :</label>
-													<h:inputText styleClass="form-control rounded-0" value="#{loginBean.phone}"/>
+													<h:inputText styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.phone}"/>
 												</div>
 
 												<div class="form-group">
 													<label class="col-form-label">Adresse :</label>
-													<h:inputText styleClass="form-control rounded-0" value="#{loginBean.address}"/>
+													<h:inputText styleClass="form-control rounded-0" value="#{depotLoginBean.deposant.address}"/>
 
 												</div>
 
-												<div class="form-group">
-													<label class="col-form-label">Role :</label>
-
-													<h:selectOneMenu value="#{loginBean.role}">
-														<f:selectItem  itemLabel="Type Compte" itemValue=""/>
-														<f:selectItems value="#{userBean.roles}"></f:selectItems>
-													</h:selectOneMenu>
-												</div>
-
+												<div class="form-group col-md-6">
+		                                            <h:outputText value="Copie Carte identité: "/>
+		                                            <h:inputFile value="#{depotLoginBean.uploadedFileCin}"/>
+		                                        </div>
 
 												<div class="form-group margin-top-30px">
-													<h:commandLink action="#{loginBean.doRegister()}" styleClass="btn btn-primary btn-block rounded-0 background-main-color box-shadow">
-														Ajouter</h:commandLink>
+													<h:commandLink action="#{depotLoginBean.doRegister()}" styleClass="btn btn-primary btn-block rounded-0 background-main-color box-shadow">
+														Ajouter
+													</h:commandLink>
 												</div>
 											</h:form>
 										</div>
 									</div>
 									<div class="col-lg-6">
-										<img src="#{request.contextPath}/assets/front/img/sing-up.jpeg" alt=""/>
+										<img src="#{request.contextPath}/resources/front/img/sing-up.jpeg" alt=""/>
 									</div>
 								</div>
 							</div>
