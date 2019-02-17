@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+	<ui:composition template="/resources/front/shared/layout.xhtml">
+		<ui:define name="title">OTDAV - WebSite</ui:define>
+
+		<ui:define name="content">
+			<div id="firo-login">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-lg-9">
+							<div class="login-out box-shadow">
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="padding-50px">
+											<div class="logo-login margin-bottom-35px">
+												<a href="index-1.html"><img
+													src="#{request.contextPath}/resources/front/img/logo-otdav.PNG" width="150"
+													alt="" /></a>
+											</div>
+											<div style="color: red">
+												<h:messages></h:messages>
+											</div>
+											<h:form class="firo-login-form">
+												<div class="form-group">
+													<label class="col-form-label">E-mail / CIN</label>
+													<h:inputText styleClass="form-control rounded-0"
+														value="#{identity.u.cin}" />
+												</div>
+												<div class="form-group">
+													<label class="col-form-label">Mot de passe</label>
+													<h:inputSecret styleClass="form-control rounded-0"
+														value="#{identity.u.motDePasse}" />
+												</div>
+												<div class="form-group ">
+													<div class="form-check">
+														<label class="form-check-label"> <input
+															class="form-check-input" type="checkbox" /> Remember me
+														</label>
+													</div>
+												</div>
+												<div class="form-group margin-top-30px">
+													<h:commandLink type="submit"
+														action="#{identity.doLogin()}"
+														styleClass="btn btn-primary btn-block rounded-0 background-main-color box-shadow">
+														S'authentifier</h:commandLink>
+
+													<a href="#{request.contextPath}/register.jsf"
+														Class="btn btn-primary btn-block rounded-0 background-main-color box-shadow">
+														S'inscrire</a>
+												</div>
+											</h:form>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<img
+											src="#{request.contextPath}/resources/front/img/login.jpeg"
+											alt="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a href="#{request.contextPath}/home.jsf"
+				class="firo-bottom sm firo-demo-back">Retour ...</a>
+		</ui:define>
+
+	</ui:composition>
+
+
+</h:body>
+</html>
