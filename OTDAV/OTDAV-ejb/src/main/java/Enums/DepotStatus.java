@@ -1,5 +1,5 @@
 package Enums;
 
 public enum DepotStatus {
-	waiting,accepted,confirmed,refused
+	waiting,accepted,waitingConfirmation,confirmed,refused
 }

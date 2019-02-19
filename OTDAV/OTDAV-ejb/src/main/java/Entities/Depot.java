@@ -2,9 +2,11 @@ package Entities;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 
+import Enums.CategoryType;
 import Enums.DepotStatus;
 
 
@@ -16,8 +18,14 @@ public class Depot implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String description;
+	private String titre;
+	private String auteur;
+	private Date dateCreation;
 	@Enumerated(EnumType.STRING)
 	private DepotStatus status;
+	
+	@Enumerated(EnumType.STRING)
+	private CategoryType category;
 	//relations
 
 	@OneToMany(mappedBy="depot")
@@ -93,11 +101,43 @@ public class Depot implements Serializable {
 		return status;
 	}
 
-
-
 	public void setStatus(DepotStatus status) {
 		this.status = status;
 	}
+
+	public CategoryType getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryType category) {
+		this.category = category;
+	}
+
+	public String getTitre() {
+		return titre;
+	}
+
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+
+	public String getAuteur() {
+		return auteur;
+	}
+
+	public void setAuteur(String auteur) {
+		this.auteur = auteur;
+	}
+
+	public Date getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
+	}
+	
+	
 	
 	
 	

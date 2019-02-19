@@ -12,7 +12,7 @@ import Entities.Deposant;
 
 public class UploadUtils {
 
-	private static final String upload = "C:\\laragon\\www\\uploads"; 
+	private static final String upload = "C:\\laragon\\www\\otdav"; 
     final Date date = new Date();
     String year;
     String month;

@@ -55,15 +55,15 @@ public class DepotLoginBean {
 	
 	public String doConnect() {
 		Deposant deposant=  deposantService.getByCin(cin);
-		Date d = new Date(date);
 		if(deposant != null) {
 			if(passwordEncoder.matches(password, deposant.getPassword())) {
-				return "/deposant/profile/index.jsf";
+				SessionBean.setCurrentDeposant(deposant);
+				return "/deposant/profile/index.jsf?faces-redirect=true";
 			}
 		}
 		
 	    FacesMessage fm = new FacesMessage("Mot de passe et/ou cin est incorrect", "ERROR 403");
-        fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+        fm.setSeverity(FacesMessage.SEVERITY_WARN);
         FacesContext.getCurrentInstance().addMessage(null, fm);
         return "/deposant/login.jsf";
 	}
@@ -87,7 +87,11 @@ public class DepotLoginBean {
 			return registerError("register","Doit contenir piece identité");
 
         if(passwordConfirm.equals(deposant.getPassword())){
-        	deposant.setPassword(passwordEncoder.encode(passwordConfirm));;
+        	if(deposantService.getByCin(deposant.getCin())!=null) {
+    			return registerError("register","Numéro cin déja exsite");
+        	}
+        	deposant.setPassword(passwordEncoder.encode(passwordConfirm));
+        	deposant.setEnabled(false);
 		    Deposant d = deposantService.add(deposant);
 		    Fichier fichier = new Fichier();
 		    String name = UploadUtils.uploadFile(deposant, uploadedFileCin);
@@ -114,7 +118,11 @@ public class DepotLoginBean {
 			return registerError("register","Doit contenir piece identité");
 
         if(passwordConfirm.equals(deposant.getPassword())){
+        	if(deposantService.getByCin(deposant.getCin())!=null) {
+    			return registerError("register","Numéro cin déja exsite");
+        	}
         	deposant.setPassword(passwordEncoder.encode(passwordConfirm));;
+        	deposant.setEnabled(false);
 		    Deposant d = deposantService.add(deposant);
 		    uploadAndPersistFile(d, uploadedFileCin,FichierType.cin);
 		    uploadAndPersistFile(d, uploadedFileCommerce,FichierType.registreCommerce);

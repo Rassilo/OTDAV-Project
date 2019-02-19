@@ -26,6 +26,7 @@ public class Deposant implements Serializable {
 	private String lieuCommerce;
 	private String numeroCommerce;
 	private String raison;
+	private boolean enabled;
 	private Date dateCommerce;
 	private long phone;
 	@Enumerated(EnumType.STRING)
@@ -39,6 +40,10 @@ public class Deposant implements Serializable {
 	
 	@OneToMany(mappedBy="deposant")
 	private List<Fichier> fichiers;
+	
+	
+	
+	
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -177,8 +182,18 @@ public class Deposant implements Serializable {
 	public void setRaison(String raison) {
 		this.raison = raison;
 	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 	
-	
+	public String competeName() {
+		return surname + " " + name;
+	}
 	
 	
 	

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+
+
+<h:body>
+    <div class="col-lg-4">
+        <div id="firo-sidebar" class="firo-sidebar">
+
+
+            <div class="firo-author-content">
+                <div class="output">
+                    <div class="author-img">
+                        <img class="box-shadow" src="#{request.contextPath}/resources/front/img/team-8.jpeg" alt=""/>
+                    </div>
+                    <div class="content">
+                        <h5><a class="float-xl-left" href="#">#{depotProfileBean.currentUser.competeName()} </a>
+                        <a style="font-weight: 200;"> @#{depotProfileBean.currentUser.login}</a></h5>
+                        <!--  Social -->
+                        <h5><a style="font-weight: 200;">Personne #{depotProfileBean.currentUser.type.toString()}</a></h5>
+
+                        <h6><a class="float-xl-left" href="historique.jsf"> Points</a></h6>
+                        <h6>
+                            <h:panelGroup rendered="#{depotProfileBean.enabled}">
+                               Status Compe : Valide
+                            </h:panelGroup>
+                            
+                            <h:panelGroup rendered="#{!depotProfileBean.enabled}">
+                               Status Compe : En cours de validation
+                            </h:panelGroup>
+
+                        </h6>
+
+                        <!-- // Social -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- widget categories -->
+            <div class="nile-widget layout-1 widget_categories Center">
+                <div class="title font-2 text-main-color">Menu</div>
+                <ul>
+                    <li><a href="#{request.contextPath}/profile/index.jsf">Profile</a></li>
+                    <h:panelGroup  rendered="#{loginBean.user.role.toString() == 'Adherant'}">
+                        <li><a href="#{request.contextPath}/profile/artwork/list.jsf">Oeuvre</a></li>
+                    </h:panelGroup>
+
+                    <h:panelGroup  rendered="#{loginBean.user.role.toString() == 'Deposant'}">
+
+                        <li>
+                            <a >Deposition</a>
+                            <li style="margin-left:15px">
+                                <a href="#{request.contextPath}/profile/deposit/listdepots.jsf">Liste Depots</a>
+                            </li>
+                            <li style="margin-left:15px">
+                                <a href="#{request.contextPath}/profile/deposit/listeDemande.jsf">Liste Demandes</a>
+                            </li>
+                        </li>
+                    </h:panelGroup>
+                    <li><a href="#{request.contextPath}/profile/rendezvous/listedet.jsf">Liste Rendez-vous</a></li>
+                    <li style="margin-left:15px">
+                        <a href="#{request.contextPath}/profile/rendezvous/addez.jsf">Ajout Rendez-Vous</a>
+                    </li>
+                    <li><a href="#{request.contextPath}/profile/rendezvous/list.jsf">Mes Contrats</a></li>
+
+                </ul>
+            </div>
+            <!-- End widget categories -->
+        </div>
+    </div>
+
+
+</h:body>
+
+</html>
