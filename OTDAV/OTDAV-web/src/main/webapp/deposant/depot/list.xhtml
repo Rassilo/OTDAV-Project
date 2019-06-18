@@ -46,6 +46,15 @@
                                             #{d.status}
                                         </h:column>
                                         
+                                        <h:column>
+                                            <f:facet name="header">Contrat</f:facet>
+                                            <h:panelGroup rendered="#{depotBean.depot.contrat == null}">
+                                           		 non payé
+                                            </h:panelGroup>
+                                            <h:panelGroup rendered="#{depotBean.depot.contrat != null}">
+                                           		 #{d.contrat.status}
+                                            </h:panelGroup>
+                                        </h:column>
                                         
                                         <h:column>
                                             <f:facet name="header">Action</f:facet>

@@ -72,8 +72,10 @@ public class DepotService implements IDepotService{
 	}
 
 	@Override
-	public void addC(Contrat c) {		
+	public Contrat addC(Contrat c) {		
 		em.persist(c);
+		em.flush();
+		return c;
 	}
 
 	@Override

@@ -47,12 +47,13 @@ public class DepotBean {
 	public String payDepot(){
 		
 		Contrat c = new Contrat();
-		c.setDepot(depot);
 		c.setDateDebut(new Date());
+		c.setDatefin(SessionBean.addYearsFromNow(1));
 		c.setPrice(100);
 		c.setStatus(ContratStatus.paid);
-		depotService.addC(c);
+		Contrat contrat = depotService.addC(c);
 		depot.setStatus(DepotStatus.waitingConfirmation);
+		depot.setContrat(contrat);
 		depotService.update(depot);
 		return "/deposant/depot/list.jsf?faces-redirect=true";
 

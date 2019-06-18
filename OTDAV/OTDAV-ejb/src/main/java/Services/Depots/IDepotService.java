@@ -19,7 +19,7 @@ public interface IDepotService {
 	public List<Depot> getAllByUser(Deposant deposant);
 	public List<Depot> getAllByStatus(DepotStatus status);
 	
-	public void addC(Contrat c);
+	public Contrat addC(Contrat c);
 	public void removeC(Contrat c);
 	public void updateC(Contrat c);
 	public Contrat getContratByDepot(Depot d);

@@ -17,6 +17,8 @@ public class Depot implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(columnDefinition="TEXT")
 	private String description;
 	private String titre;
 	private String auteur;
@@ -28,9 +30,6 @@ public class Depot implements Serializable {
 	private CategoryType category;
 	//relations
 
-	@OneToMany(mappedBy="depot")
-	private List<Contrat> contrats; 
-	
 	@ManyToOne
 	private Deposant deposant;	
  
@@ -58,18 +57,9 @@ public class Depot implements Serializable {
 	public Integer getId() {
 		return id;
 	}
-
-
-
-	public List<Contrat> getContrats() {
-		return contrats;
-	}
-
-
-
-	public void setContrats(List<Contrat> contrats) {
-		this.contrats = contrats;
-	}
+	
+	
+	
 
 
 

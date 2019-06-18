@@ -23,17 +23,26 @@ public class Contrat implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private ContratStatus status;
 	//relations
-
-	@ManyToOne
-	private Depot depot; 
+	
+	@OneToMany(mappedBy="contrat",cascade = CascadeType.ALL)
+	private List<Depot> depots;
 	
 	private static final long serialVersionUID = 1L;
-	
-	
 	
 	public String getDescription() {
 		return description;
 	}
+	
+	
+	public List<Depot> getDepots() {
+		return depots;
+	}
+
+
+	public void setDepots(List<Depot> depots) {
+		this.depots = depots;
+	}
+
 
 
 
@@ -52,20 +61,6 @@ public class Contrat implements Serializable {
 	public Integer getId() {
 		return id;
 	}
-
-
-
-	public Depot getDepot() {
-		return depot;
-	}
-
-
-
-	public void setDepot(Depot depot) {
-		this.depot = depot;
-	}
-
-
 
 	public Date getDateDebut() {
 		return dateDebut;
